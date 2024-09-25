@@ -1,21 +1,21 @@
 name: Snyk Security Scan for DVNA
 
-on: push
+on: 
+  push
 
 jobs:
   snyk_security_scan:
     runs-on: ubuntu-latest
-     steps:
-        - name: Checkout DVNA code
+    steps:
+      - name: Checkout DVNA code
         uses: actions/checkout@v3
         with:
-          repository: Beejiguy/Swiftlint# Specify the target repo
+          repository: Beejiguy/Swiftlint # Specify the target repo
           ref: main
 
-        - name: Run Snyk to check for vulnerabilities
+      - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/swift@master 
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          command: monitor
-
+          command: monito
